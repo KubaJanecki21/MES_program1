@@ -9,13 +9,13 @@ import java.util.Vector;
  */
 public class Element {
 
-    Wezel wezel1;
-    Wezel wezel2;
+    public Wezel wezel1;
+    public Wezel wezel2;
     Double S;
     Double k;
     Double L;
-    Matrix LH;
-    Matrix LP;
+    public Matrix LH;
+    WektorWymuszen P;
 
     public Element(Wezel w1,Wezel w2,Double S,Double k, Double L){
         this.wezel1=w1;
@@ -23,6 +23,16 @@ public class Element {
         this.S=S;
         this.k=k;
         this.L=L;
+
+    }
+
+    public void generujLH(){
+        MacierzLokalna LH=new MacierzLokalna(this);
+
+    }
+
+    public void setWektorWymuszen(){
+        P=new WektorWymuszen(this);
     }
 
 

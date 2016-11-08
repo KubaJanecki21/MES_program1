@@ -6,9 +6,9 @@ package Klasy;
 public class Siatka {
     Integer liczba_wezlow;
     Integer liczba_elementow;
-    Double q;
-    static Double alfa;
-    Double t_inf;
+    public static  Double q;
+    public static Double alfa;
+    public static Double t_inf;
 
     public Siatka(Integer wezly, Integer elementy, Double q, Double alfa, Double t_inf){
         liczba_wezlow=wezly;

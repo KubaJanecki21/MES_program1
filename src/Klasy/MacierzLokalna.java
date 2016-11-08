@@ -1,11 +1,15 @@
 package Klasy;
 
 import Jama.Matrix;
+import com.sun.xml.internal.bind.v2.TODO;
 
 /**
  * Created by Kuba on 2016-10-28.
  */
 public class MacierzLokalna {
+
+
+
     final int rozmiar=2;
     Element el;
     double[][] macierzH;
@@ -26,14 +30,9 @@ public class MacierzLokalna {
 
 
 
+
     void liczMacierz(){
-        int bc=el.wezel1.getBC();
-        int bc2=el.wezel2.getBC();
-        if((bc==2)||(bc2==2)) {
-            if(bc==2){
-                macierzKonw[0][0]=Siatka.alfa*el.S;
-            } else macierzKonw[1][1]=Siatka.alfa*el.S;//TODO zmiana tej macierzy konwekcji zaleznie od kierunku strumienia
-        }
+
 
         for(int i=0;i<rozmiar;i++){
             for(int j=0;j<rozmiar;j++){
@@ -41,6 +40,14 @@ public class MacierzLokalna {
                 else macierzH[i][j]=-((el.k*el.S)/el.L);
             }
         }
+        int bc=el.wezel1.getBC();
+        int bc2=el.wezel2.getBC();
+        if((bc==2)||(bc2==2)) {
+            if(bc==2){
+                macierzKonw[0][0]+=Siatka.alfa*el.S;
+            } else macierzKonw[1][1]+=Siatka.alfa*el.S;
+        }
+
     }
 
     double[][] inicjujMacierz(int romiar){

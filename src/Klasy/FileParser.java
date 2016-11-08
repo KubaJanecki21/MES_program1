@@ -45,9 +45,11 @@ public class FileParser {
         }
         Integer wsp=Integer.parseInt(czytajLinie(odczyt));
         String[] wspolrzedne_s=new String[wsp];
+
         for(int i=0;i<wsp;i++){
             wspolrzedne_s[i]=czytajLinie(odczyt);
         }
+
         Double alfa=Double.parseDouble(czytajLinie(odczyt));
         Double q=Double.parseDouble(czytajLinie(odczyt));
         Double temp_inf=Double.parseDouble(czytajLinie(odczyt));
@@ -58,7 +60,6 @@ public class FileParser {
 
         siatka=new Siatka(wezly.size(),elementy.length,q,alfa,temp_inf);
 
-        System.out.print("pobrano");
     }
 
     String czytajLinie(Scanner in){
@@ -92,17 +93,17 @@ public class FileParser {
             Wezel w1=szukajNaLiscie(wezelId1);
             Wezel w2=szukajNaLiscie(wezelId2);
             if(w1==null) {
-                w1=new Wezel(x1, wezelId1);
+                w1=new Wezel(x1, wezelId1,1);
                 wezly.add(w1);
             }
             if(w2==null) {
-                w2=new Wezel(x2,wezelId2);
+                w2=new Wezel(x2,wezelId2,2);
                 wezly.add(w2);
             }
 
             L= Math.abs(x2-x1);
-            Element e=new Element(w1,w2,S,k,L);
-            return e;
+            return new Element(w1,w2,S,k,L);
+
 
         } else return null;
 
